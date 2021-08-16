@@ -1,27 +1,33 @@
-import React from "react";
-import logo from "./logo.svg";
-import "./App.css";
-import { Button } from "./components/atoms/Button";
+import React from 'react';
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import { ThemeProvider } from 'styled-components';
+import { AsmodeusTheme } from './theme';
+import { Banner } from './components/molecules';
+import { MainContainer } from './components/atoms';
+import Routes from './routes';
+import logo from './logo.svg';
+import './App.css';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-        <Button variant={'Primary'}>Click me</Button>
-      </header>
-    </div>
+    <Router>
+      <ThemeProvider theme={AsmodeusTheme}>
+      <MainContainer>
+        <Banner />Î
+        <Switch>
+          <Route path={Routes.home}>
+            <div></div>
+          </Route>
+          <Route path={Routes.products}>
+            <div></div>
+          </Route>
+          <Route path={Routes.category}>
+            <div></div>
+          </Route>
+        </Switch>
+      </MainContainer>
+      </ThemeProvider>
+    </Router>
   );
 }
 

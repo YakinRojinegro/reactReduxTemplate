@@ -1,7 +1,8 @@
 import styled from "styled-components";
 
 interface IButton {
-    variant: "Primary" | "Secondary"
+    variant: "Primary" | "Secondary",
+    
 }
 
 export const Button = styled.button<IButton>`
